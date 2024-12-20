@@ -1,0 +1,84 @@
+* molecules to include in the opacity calculation
+* number fractions as set here will be overwritten when chemistry=.true.
+
+
+CO2=0.002363912
+
+
+
+
+* radius of the planet in Jupiter radii
+Rp=0.1091d0 
+* mass of the planet in Jupiter masses
+Mp=0.00943673d0 
+* internal temperature (temperature the planet would have in isolation from its star)
+TeffP=10d0
+* distance between the planet and the host star in AU
+Dplanet=0.01d0
+
+* stellar temperature
+Tstar=3291
+* stellar radius in solar radii
+Rstar=0.339d0
+* distance to the system in parsec
+distance=8.08
+
+* use GGchem to compute the molecular abundances from atomic abundances
+chemistry=.true.
+* use the condensation mode of GGchem to remove atoms from the gas phase
+condensates=.false.
+* use the condensation mode of GGchem to compute a simple rainout model
+simplerainout=.false.
+
+* elemental abundances of the crust
+elementfile='/mnt/e/ARCiS/CASSUM/solar.dat'
+
+* compute outgassing from the crust to determine atomic abundances of the atmosphere
+secondary_atmosphere=.false.
+
+* maximum and minimum pressure in the atmosphere and number of layers
+pmin=1d-8
+pmax=3.6230d4
+nr=50
+* pressure in the atmosphere where radius is Rp
+Pp=3.6230d4
+
+* maximum and minimum wavelength for computing observables and the spectral resolution
+lmin=0.1d0
+lmax=50.0d0
+specres=150
+
+* use of collision induced absorption
+cia=.true.
+* you can add additional files. Make sure this points to the right directory
+cia1:file="/Users/fahim/ARCiS/Data/CIA/CO2-CO2_combined.cia"
+
+* compute the temperature structure of the atmosphere from radiative/convective equilibrium
+
+par_tprofile=.true.
+
+kappa =  1E-02			! between 1d-4 and 1d-1 cm^2/g
+gammaT =  1.01
+betaT =  7.5663718E-01			! between 0 and 1
+computeT=.false.
+
+* maximum number of iterations for the temperature structure
+maxiter=30
+
+* compute scattered light
+scattering=.true.
+scattstar=.true.
+
+* 1D model in 3D setup for better computation of scattered light
+run3D=.true.
+night2day=1d0
+hotspotshift=0d0
+fDay=1d0
+output3D=.false.
+isoFstar=.true.
+
+* surface definitions
+* type can be: grey, white, black, mix
+surfacetype='grey'
+* albedo of the surface. Only used if surfacetype='grey'
+surfacealbedo=0.1
